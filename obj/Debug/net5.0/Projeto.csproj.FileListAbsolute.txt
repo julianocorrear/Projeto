@@ -1,0 +1,16 @@
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\bin\Debug\net5.0\Projeto.exe
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\bin\Debug\net5.0\Projeto.deps.json
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\bin\Debug\net5.0\Projeto.runtimeconfig.json
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\bin\Debug\net5.0\Projeto.runtimeconfig.dev.json
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\bin\Debug\net5.0\Projeto.dll
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\bin\Debug\net5.0\ref\Projeto.dll
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\bin\Debug\net5.0\Projeto.pdb
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.csproj.AssemblyReference.cache
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.AssemblyInfoInputs.cache
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.AssemblyInfo.cs
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.csproj.CoreCompileInputs.cache
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.dll
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\ref\Projeto.dll
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.pdb
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.genruntimeconfig.cache
