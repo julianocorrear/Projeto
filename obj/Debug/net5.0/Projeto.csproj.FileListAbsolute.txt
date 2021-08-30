@@ -14,3 +14,6 @@ C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de t
 C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\ref\Projeto.dll
 C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.pdb
 C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.genruntimeconfig.cache
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\bin\Debug\net5.0\itextsharp.dll
+C:\Users\RibeiJ01\OneDrive - Associacao Antonio Vieira\2021 - 2\Mineração de texto\Projeto\obj\Debug\net5.0\Projeto.csproj.CopyComplete

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace Classes
 {
@@ -7,7 +8,20 @@ namespace Classes
         #region Menus
         public void MenuInicial()
         {
-        Console.WriteLine("Projeto de Mineração de dados - Atividade 1");
+        Console.WriteLine("\n===========================================\nProjeto de Mineração de dados - Atividade 1\n===========================================\n");
+        Console.WriteLine("Pressione Qualquer Tecla para Continuar...");
+        Console.ReadKey();
+        Console.Clear();
+        }
+
+        public void MenuPrincipal()
+        {
+            var Metodos1 = new Metodos();
+            string docname;
+            Console.WriteLine(@"A pasta padrão utilizada no momento é: C:\Temp\");
+            Console.WriteLine("Digite o nome do PDF que será aberto:");
+            docname = Console.ReadLine();
+            Metodos1.CarregaPDF(docname);
         }
         #endregion
 
