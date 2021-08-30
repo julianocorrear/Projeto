@@ -1,8 +1,32 @@
 {
   "version": 2,
-  "dgSpecHash": "op35nyjV+x9guCp+SYeWWhuxzNePdRpFyED565ZoCJP8twNfpYYOO7SIezR4gWdHqZ2hhR3NHxU1RiXUVH0Heg==",
+  "dgSpecHash": "g3ndHEKNp5dO8O9A/xaHlK0OcjK6O2YUsRWgQggnaUQHOCa6QAF+eJiaapXJTrpV3mJD0n8Ll/on3pTpjo1SiA==",
   "success": true,
   "projectFilePath": "C:\\Users\\RibeiJ01\\OneDrive - Associacao Antonio Vieira\\2021 - 2\\Mineração de texto\\Projeto\\Projeto.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\RibeiJ01\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
+    "C:\\Users\\RibeiJ01\\.nuget\\packages\\itextsharp\\5.5.13.2\\itextsharp.5.5.13.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'iTextSharp 5.5.13.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "iTextSharp",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
