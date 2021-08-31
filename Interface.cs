@@ -18,10 +18,14 @@ namespace Classes
         {
             var Metodos1 = new Metodos();
             string docname;
+            string TextoCarregado;
+            string buscarefinada;
             Console.WriteLine(@"A pasta padrão utilizada no momento é: C:\Temp\");
             Console.WriteLine("Digite o nome do PDF que será aberto:");
             docname = Console.ReadLine();
-            Metodos1.CarregaPDF(docname);
+            TextoCarregado = Metodos1.CarregaPDF(docname);
+            buscarefinada = Metodos1.Pesquisa(TextoCarregado);
+            Console.WriteLine(buscarefinada);
         }
         #endregion
 
