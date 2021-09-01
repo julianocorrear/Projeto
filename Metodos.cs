@@ -70,25 +70,53 @@ namespace Classes
                      {
                          texto.Append($"{linha}{"\n"}");
                          file.WriteLine(linha);
-                     }
-
-                     //using (StreamWriter file = new StreamWriter(arquivoDeLog))
-                     //for (int i = 0; i < 100; i++)
-                     //file.Write($"{i} ");
+                     }                     
                  }
                  else
                  //Append se já existe
-                 {
-                     
+                 {                  
+                     var log = CarregaArquivoDeLog();                                          
+                     var texto = new System.Text.StringBuilder();
+                     string[] linhas =  varLog.Split('\n');
+                     using (StreamWriter file = new StreamWriter(arquivoDeLog, append:true))
+                     foreach (string linha in linhas)
+                     {
+                         texto.Append($"{linha}{"\n"}");
+                         file.WriteLine(linha);
+                     }                     
                  }
-
              }
 
+             public String CarregaArquivoDeLog()
+             {
+                 string log = "a";
+                 if (System.IO.File.Exists(arquivoDeLog))
+                 {
+                     log = File.ReadAllText(arquivoDeLog);                                     
+                 }
+                 return log;
+             }
+
+             public int CalculaQuantasPesquisas(string varLog)
+             {
+                 int contador = 0;
+                 string[] linhas = varLog.Split('\n');
+                 foreach (string linha in linhas)
+                 {
+                     if (linha.Contains("Numero da consulta:"))
+                     {
+                         contador++;
+                     }
+                 }
+                 return contador;
+             }                        
              public string PreparaLog(String varLog, String varDocName, String varBuscaRefinada)
              {
                  var texto = new System.Text.StringBuilder();
+                 string log = CarregaArquivoDeLog();
+                 int pesquisas = CalculaQuantasPesquisas(log);
                  texto.Append("****************************\n");
-                 texto.Append("Numero da consulta: \n");
+                 texto.Append("Numero da consulta: "+pesquisas+"\n");
                  texto.Append("Nome do documento: "+varDocName+"\n");
                  texto.Append("String de busca: "+varBuscaRefinada+"\n");
                  texto.Append("Ocorrências: \n");
