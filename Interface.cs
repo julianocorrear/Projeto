@@ -17,8 +17,6 @@ namespace Classes
         public unsafe void MenuPrincipal()
         {
             var Metodos1 = new Metodos();
-                              
-            
             string log = "a";          
 
             Console.WriteLine(@"A pasta padrão utilizada no momento é: C:\Temp\");
