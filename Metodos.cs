@@ -53,11 +53,17 @@ namespace Classes
                 //debug - Console.WriteLine("Texto: "+vartexto);            
                 foreach(string palavra in varBuscaAux)
                 {
-                    if (palavra.Equals("or"))
+                    switch (palavra)
                     {
-                        validacao = 1;                        
-                    }
+                        case "or":
+                        validacao = 1;
+                        break;
 
+                        case "and":
+                        validacao = 2;
+                        break;                                       
+                    }
+                    
                     switch (validacao)                    
                     {
                         //caso a string possua 'OR'
@@ -84,6 +90,55 @@ namespace Classes
                                 }   
                             }
                             Objetos.varTexto = resultado.ToString();                                  
+                        }                                              
+                        
+                        break;
+
+                        case 2:
+                        var isAndOKList = new List<int>();                        
+                        varBuscaAux = varBusca.Split(' ');
+                        foreach (string palavra2 in varBuscaAux)
+                        {
+                            if (!palavra2.Contains("AND"))
+                            //Console.WriteLine("Palavra2: "+palavra2);
+                            {   
+                                StringDeBusca.Add(palavra2);                                
+                            }                                                       
+                        }
+                        i=0;
+                        int isAndOK = 0;
+                        varBuscaAux = vartexto.Split(' ');
+                        for (i = 0; i < StringDeBusca.Count; i++)
+                        {
+                            foreach (string palavra3 in varBuscaAux)
+                            {                                
+                                if (palavra3.Equals(StringDeBusca[i]))                                                                                                                                                            
+                                {   
+                                    isAndOKList[i] = 1;
+                                    resultado.Append($"{palavra}{"\n"}");                            
+                                    Objetos.varOcorrencias++;                              
+                                }                                                                
+                            }
+                            i=0;
+                            for (i = 0; i < isAndOKList.Count; i++)
+                            {
+                                if (isAndOKList[i] == 1)
+                                {
+                                    isAndOK = 1;
+                                }
+                                else
+                                {
+                                    isAndOK = 0;
+                                }                                
+                            }
+                            if (isAndOK == 1)                            
+                            {
+                                Objetos.varTexto = resultado.ToString();
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nPesquisa AND não retornou nenhum resultado!\n");
+                            }                                                              
                         }                                              
                         
                         break;
