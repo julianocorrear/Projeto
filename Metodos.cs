@@ -44,12 +44,13 @@ namespace Classes
            // executa a string de pesquisa no texto do pdf
             {
                 Objetos.varOcorrencias = 0;                 
-                ArrayList StringDeBusca = new ArrayList();
+                var StringDeBusca = new List<string>();
                 System.Text.StringBuilder resultado = new System.Text.StringBuilder();
                 String[] varBuscaAux = varBusca.Split(' ');
                 int validacao = 0; 
                 int i = 0;               
-                            
+
+                Console.WriteLine("Texto: "+vartexto);            
                 foreach(string palavra in varBuscaAux)
                 {
                     if (palavra.Equals("and"))
@@ -57,16 +58,18 @@ namespace Classes
                         validacao = 1;                        
                     }
 
-                    switch (validacao)
+                    switch (validacao)                    
                     {
+                        //caso a string possua AND
                         case 1:
+                        //Console.WriteLine("Case 1: "+i);
                         varBuscaAux = varBusca.Split(' ');
                         foreach (string palavra2 in varBuscaAux)
                         {
                             if (!palavra2.Contains("and"))
-                            {      
-                                StringDeBusca[i] = palavra2;
-                                i++;                                                                
+                            Console.WriteLine("Palavra2: "+palavra2);
+                            {   
+                                StringDeBusca.Add(palavra2);                                
                             }                                                       
                         }
                         i=0;
@@ -75,8 +78,13 @@ namespace Classes
                         {
                             foreach (string palavra3 in varBuscaAux)
                             {
-                                if (palavra.Equals(StringDeBusca[i]))
-                                {                                                                                                
+                                //debug - Console.WriteLine("Palavra3: "+palavra3+"\n");
+                                if (palavra3.Equals(StringDeBusca[i]))                                                                                                                            
+                                {    
+                                    //debug - Console.WriteLine("String de Busca: "+StringDeBusca[i]+"\n");                                                                                            
+                                    //debug - Console.WriteLine("Palavra3: "+palavra3+"\n");
+                                    Console.WriteLine("VarOcorrencias: "+Objetos.varOcorrencias+"\n");
+
                                     resultado.Append($"{palavra}{"\n"}");                            
                                     Objetos.varOcorrencias++;                              
                                 }   
