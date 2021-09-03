@@ -14,22 +14,21 @@ namespace Classes
         Console.Clear();
         }
 
-        public void MenuPrincipal()
+        public unsafe void MenuPrincipal()
         {
             var Metodos1 = new Metodos();
-            string docname;
-            string TextoCarregado;
-            string busca;
-            string buscarefinada;
-            string log = "a";
+                              
+            
+            string log = "a";          
+
             Console.WriteLine(@"A pasta padrão utilizada no momento é: C:\Temp\");
             Console.WriteLine("Digite o nome do PDF que será aberto:");
-            docname = Console.ReadLine();
-            TextoCarregado = Metodos1.CarregaPDF(docname);
-            busca = Metodos1.DefineStringDePesquisa();
-            buscarefinada = Metodos1.Pesquisa(TextoCarregado,busca);
-            log = Metodos1.PreparaLog(log,docname,busca);
-            Metodos1.SalvaEmArquivo(log);
+            Objetos.varDocName = Console.ReadLine();
+            Objetos.varTextoCarregado = (Metodos1.CarregaPDF(Objetos.varDocName)).ToLower();
+            Metodos1.DefineStringDePesquisa();            
+            Metodos1.Pesquisa(Objetos.varTextoCarregado,Objetos.varBusca);
+            Objetos.varLog = Metodos1.PreparaLog(log,Objetos.varDocName,Objetos.varBusca,Objetos.varOcorrencias);
+            Metodos1.SalvaEmArquivo(Objetos.varLog);
         }
         #endregion
 
