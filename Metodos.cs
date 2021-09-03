@@ -109,12 +109,13 @@ namespace Classes
                         int isAndOK = 0;
                         varBuscaAux = vartexto.Split(' ');
                         for (i = 0; i < StringDeBusca.Count; i++)
-                        {
+                        {                            
                             foreach (string palavra3 in varBuscaAux)
                             {                                
                                 if (palavra3.Equals(StringDeBusca[i]))                                                                                                                                                            
                                 {   
-                                    isAndOKList[i] = 1;
+                                    //Console.WriteLine("String de Busca: "+StringDeBusca[i]);                                    
+                                    isAndOKList.Add(1);
                                     resultado.Append($"{palavra}{"\n"}");                            
                                     Objetos.varOcorrencias++;                              
                                 }                                                                
@@ -144,6 +145,8 @@ namespace Classes
                         break;
 
                         case 0:
+
+                            //pesquisa sem operador
                             System.Text.StringBuilder resultado2 = new System.Text.StringBuilder();                                
                             string[] linhas2 = vartexto.Split('\n');
                             foreach(string linha in linhas2)
