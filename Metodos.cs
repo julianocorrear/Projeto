@@ -43,6 +43,7 @@ namespace Classes
            public void Pesquisa(string vartexto,string varBusca)
            // executa a string de pesquisa no texto do pdf
             {
+                int isAndOK = 0;
                 Objetos.varOcorrencias = 0;                 
                 var StringDeBusca = new List<string>();
                 System.Text.StringBuilder resultado = new System.Text.StringBuilder();
@@ -99,14 +100,13 @@ namespace Classes
                         varBuscaAux = varBusca.Split(' ');
                         foreach (string palavra2 in varBuscaAux)
                         {
-                            if (!palavra2.Contains("AND"))
+                            if (!palavra2.Contains("and"))
                             //Console.WriteLine("Palavra2: "+palavra2);
                             {   
                                 StringDeBusca.Add(palavra2);                                
                             }                                                       
                         }
-                        i=0;
-                        int isAndOK = 0;
+                        i=0;                        
                         varBuscaAux = vartexto.Split(' ');
                         for (i = 0; i < StringDeBusca.Count; i++)
                         {                            
@@ -116,9 +116,13 @@ namespace Classes
                                 {   
                                     //Console.WriteLine("String de Busca: "+StringDeBusca[i]);                                    
                                     isAndOKList.Add(1);
-                                    resultado.Append($"{palavra}{"\n"}");                            
-                                    Objetos.varOcorrencias++;                              
-                                }                                                                
+                                    resultado.Append($"{palavra}{"\n"}");                      
+                                                                  
+                                }
+                                else
+                                {
+                                    isAndOKList.Add(0);
+                                }                                                            
                             }
                             i=0;
                             for (i = 0; i < isAndOKList.Count; i++)
@@ -130,18 +134,24 @@ namespace Classes
                                 else
                                 {
                                     isAndOK = 0;
-                                }                                
-                            }
-                            if (isAndOK == 1)                            
+                                }                                   
+                            }                                                                     
+                        }
+                        if (isAndOK == 1)                            
+                        {
+                            for (i = 0; i < isAndOKList.Count;i++)
                             {
-                                Objetos.varTexto = resultado.ToString();
+                                if (isAndOKList[i] == 1)
+                                {
+                                    Objetos.varOcorrencias++;
+                                }   
                             }
-                            else
-                            {
-                                Console.WriteLine("\nPesquisa AND não retornou nenhum resultado!\n");
-                            }                                                              
-                        }                                              
-                        
+                            Objetos.varTexto = resultado.ToString();
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nPesquisa AND não retornou nenhum resultado!\n");
+                        }                                 
                         break;
 
                         case 0:
@@ -158,12 +168,12 @@ namespace Classes
                                 }   
                             }
                             Objetos.varTexto = resultado2.ToString();
-                        break;                        
+                        break;                    
                     
                     }
                 
                 }                                
-                                   
+                                      
             }
 
              #region SalvaPesquisaEmArquivo
