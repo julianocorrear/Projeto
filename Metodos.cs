@@ -50,23 +50,22 @@ namespace Classes
                 int validacao = 0; 
                 int i = 0;               
 
-                Console.WriteLine("Texto: "+vartexto);            
+                //debug - Console.WriteLine("Texto: "+vartexto);            
                 foreach(string palavra in varBuscaAux)
                 {
-                    if (palavra.Equals("and"))
+                    if (palavra.Equals("or"))
                     {
                         validacao = 1;                        
                     }
 
                     switch (validacao)                    
                     {
-                        //caso a string possua AND
-                        case 1:
-                        //Console.WriteLine("Case 1: "+i);
+                        //caso a string possua 'OR'
+                        case 1:                        
                         varBuscaAux = varBusca.Split(' ');
                         foreach (string palavra2 in varBuscaAux)
                         {
-                            if (!palavra2.Contains("and"))
+                            if (!palavra2.Contains("or"))
                             Console.WriteLine("Palavra2: "+palavra2);
                             {   
                                 StringDeBusca.Add(palavra2);                                
@@ -77,14 +76,9 @@ namespace Classes
                         for (i = 0; i < StringDeBusca.Count; i++)
                         {
                             foreach (string palavra3 in varBuscaAux)
-                            {
-                                //debug - Console.WriteLine("Palavra3: "+palavra3+"\n");
+                            {                                
                                 if (palavra3.Equals(StringDeBusca[i]))                                                                                                                            
-                                {    
-                                    //debug - Console.WriteLine("String de Busca: "+StringDeBusca[i]+"\n");                                                                                            
-                                    //debug - Console.WriteLine("Palavra3: "+palavra3+"\n");
-                                    Console.WriteLine("VarOcorrencias: "+Objetos.varOcorrencias+"\n");
-
+                                {   
                                     resultado.Append($"{palavra}{"\n"}");                            
                                     Objetos.varOcorrencias++;                              
                                 }   
