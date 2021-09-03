@@ -11,8 +11,7 @@ namespace Classes
     public unsafe class Metodos
     {
         public string arquivoDeLog = @"C:\Temp\LogDePesquisa.txt";
-        
-            #region CarregaPDF
+                    
             public string CarregaPDF(string vardocname)
             {
                 string TextoAux;
@@ -31,17 +30,15 @@ namespace Classes
                     TextoAux = textoDoPdf.ToString();
                 }
                 return TextoAux;
-            }
-           #endregion
-           public void DefineStringDePesquisa()
-           // define a string que será usada
-           {
+            }        
+            public void DefineStringDePesquisa()
+            // define a string que será usada
+            {
                 Console.WriteLine("Qual expressão deseja pesquisar? (Utilize AND ou OR como operadores lógicos)");
                 Objetos.varBusca = (Console.ReadLine()).ToLower();                               
-           }
-           
-           public void Pesquisa(string vartexto,string varBusca)
-           // executa a string de pesquisa no texto do pdf
+            }           
+            public void Pesquisa(string vartexto,string varBusca)
+            // executa a string de pesquisa no texto do pdf
             {
                 int isAndOK = 0;
                 Objetos.varOcorrencias = 0;                 
@@ -91,8 +88,7 @@ namespace Classes
                                 }   
                             }
                             Objetos.varTexto = resultado.ToString();                                  
-                        }                                              
-                        
+                        }                                                                      
                         break;
 
                         case 2:
@@ -116,8 +112,7 @@ namespace Classes
                                 {   
                                     //Console.WriteLine("String de Busca: "+StringDeBusca[i]);                                    
                                     isAndOKList.Add(1);
-                                    resultado.Append($"{palavra}{"\n"}");                      
-                                                                  
+                                    resultado.Append($"{palavra}{"\n"}");                                                                                        
                                 }
                                 else
                                 {
@@ -168,15 +163,10 @@ namespace Classes
                                 }   
                             }
                             Objetos.varTexto = resultado2.ToString();
-                        break;                    
-                    
+                        break;
                     }
-                
-                }                                
-                                      
+                }                     
             }
-
-             #region SalvaPesquisaEmArquivo
              public void SalvaEmArquivo(string varLog)
              //salva o log preparado em arquivo
              {
@@ -247,10 +237,5 @@ namespace Classes
                  varLog = texto.ToString();
                  return varLog;
              }
-             #endregion
-
-           
-
-
     }
 }
