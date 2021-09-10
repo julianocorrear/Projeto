@@ -9,6 +9,8 @@ namespace Classes
         public string PalavraBuscada {get;}
         public string NomeArquivo {get;}
 
+        
+
         public Arquivo(string pb, string path, int numeroRepeticoes)
         {            
             this.PalavraBuscada = pb;

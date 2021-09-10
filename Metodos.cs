@@ -240,6 +240,16 @@ namespace Classes
                  varLog = texto.ToString();
                  return varLog;
              }
+             public void CapturaPastaDataset()
+             {
+                 Console.WriteLine("Em qual pasta os arquivos estão?");
+                 Objetos.varPath = (Console.ReadLine()).ToLower();
+             }
+             public void CapturaPalavrasRanking()
+             {
+                 Console.WriteLine("Quais palavras deseja buscar? (Multiplas palavras separadas por espaço)");
+                 Objetos.varBusca = (Console.ReadLine()).ToLower();
+             }
              public void ConexaoDB(string path)
              {               
                  sqliteConnection = new SQLiteConnection(path);
