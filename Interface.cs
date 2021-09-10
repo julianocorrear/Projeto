@@ -35,13 +35,13 @@ namespace Classes
             {
                 Arquivo arquivo = new Arquivo("Teste");
                 string db="Data Source= C:\\Temp\\dados2.db";
-                Console.WriteLine("Debugando app..../n");
-                Console.WriteLine("Criando arquivo..../n");                
+                Console.WriteLine("Debugando app....\n");
+                Console.WriteLine("Criando arquivo....\n");                
                 Metodos1.CriarDatabase("C:\\Temp\\dados2.db");
                 Metodos1.ConexaoDB(db);
-                Console.WriteLine("Criando tabela..../n");
+                Console.WriteLine("Criando tabela....\n");
                 Metodos1.CriarTabelaNoDB();
-                Console.WriteLine("Gravando Texto de exemplo..../n");
+                Console.WriteLine("Gravando Texto de exemplo....\n");
                 Metodos1.GravarNoDB(arquivo);
                 Metodos1.LeituraDoBD();
             }

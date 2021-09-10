@@ -280,12 +280,12 @@ namespace Classes
                      Arquivo arquivo;
                      cmd.CommandText = "SELECT * FROM DadosDaPesquisa";
 
-                     Console.WriteLine("Dados do Banco:");
+                     Console.WriteLine("Dados do Banco:");                     
                      using (var reader = cmd.ExecuteReader())
                      {
                           while (reader.Read())
-                          {
-                               arquivo = new Arquivo(reader["PalavraBuscada"].ToString(), reader["NomeArquivo"].ToString(), Convert.ToInt32(reader["NumeroRepeticoes"].ToString()));
+                          {                              
+                               arquivo = new Arquivo(reader["PalavraBuscada"].ToString(), reader["NomeDoArquivo"].ToString(), Convert.ToInt32(reader["NumeroRepeticoes"].ToString()));
                                listaArquivos.Add(arquivo);
                           }
                           Console.WriteLine("Informações dos Arquivos na Banco:\n");
