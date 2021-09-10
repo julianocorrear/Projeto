@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
+using System.Data;
+using System.Data.SQLite;
 
 
 namespace Classes
@@ -11,6 +13,7 @@ namespace Classes
     public unsafe class Metodos
     {
         public string arquivoDeLog = @"C:\Temp\LogDePesquisa.txt";
+        private static SQLiteConnection sqliteConnection;          
                     
             public string CarregaPDF(string vardocname)
             {
@@ -237,5 +240,66 @@ namespace Classes
                  varLog = texto.ToString();
                  return varLog;
              }
+             public void ConexaoDB(string path)
+             {               
+                 sqliteConnection = new SQLiteConnection(path);
+                 sqliteConnection.Open();
+             }
+             public void CriarDatabase(string nome)
+             {
+                 Console.WriteLine(nome+"\n");
+                 Console.ReadKey();
+                 SQLiteConnection.CreateFile(nome);
+                 Console.WriteLine("DB Criado \n");
+                 Console.ReadKey();
+             }
+             public void CriarTabelaNoDB()
+             {
+                 using (var cmd = sqliteConnection.CreateCommand())
+                 {
+                 cmd.CommandText = "CREATE TABLE IF NOT EXISTS DadosDaPesquisa(NomeDoArquivo VarChar(30), PalavraBuscada VarChar(30), NumeroRepeticoes int)";
+                 cmd.ExecuteNonQuery();
+                 }
+             }
+             public void GravarNoDB(Arquivo arquivo)
+             {
+                 using (var cmd = sqliteConnection.CreateCommand())
+                 {
+                      cmd.CommandText = "INSERT INTO DadosDaPesquisa(NomeDoArquivo, PalavraBuscada, NumeroRepeticoes ) values (@NomeArquivo, @PalavraBuscada, @NumeroRepeticoes)";
+                      cmd.Parameters.AddWithValue("@NomeArquivo",arquivo.NomeArquivo);
+                      cmd.Parameters.AddWithValue("@PalavraBuscada", arquivo.PalavraBuscada);
+                      cmd.Parameters.AddWithValue("@NumeroRepeticoes", arquivo.NumeroRepeticoes);
+                      cmd.ExecuteNonQuery();
+                 }
+             }
+             public void LeituraDoBD()
+             {
+                 using (var cmd = new System.Data.SQLite.SQLiteCommand(sqliteConnection))
+                 {
+                     List<Arquivo> listaArquivos = new List<Arquivo>();
+                     Arquivo arquivo;
+                     cmd.CommandText = "SELECT * FROM DadosDaPesquisa";
+
+                     Console.WriteLine("Dados do Banco:");
+                     using (var reader = cmd.ExecuteReader())
+                     {
+                          while (reader.Read())
+                          {
+                               arquivo = new Arquivo(reader["PalavraBuscada"].ToString(), reader["NomeArquivo"].ToString(), Convert.ToInt32(reader["NumeroRepeticoes"].ToString()));
+                               listaArquivos.Add(arquivo);
+                          }
+                          Console.WriteLine("Informações dos Arquivos na Banco:\n");
+                          Console.WriteLine("########################################");
+                          foreach(Arquivo arq in listaArquivos)
+                          {                        
+                                Console.WriteLine($"Palavra Buscada: {arq.PalavraBuscada}");
+                                Console.WriteLine($"Nome do Arquivo: {arq.NomeArquivo}");
+                                Console.WriteLine($"Numero de linhas em que a palavra aparece: {arq.NumeroRepeticoes}");
+                                Console.WriteLine("########################################");
+                          }
+                     }
+                 }
+             }
+
     }
 }
